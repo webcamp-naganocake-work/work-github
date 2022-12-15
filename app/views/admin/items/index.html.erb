@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <h1>商品一覧</h1>
+        <table class = "table">
+          <thead>
+            <tr>
+              <th>商品ID</th>
+              <th>商品名</th>
+              <th>税抜価格</th>
+              <th>ジャンル</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @item.each do |item| %>
+             <tr>
+              <td>
+                <span><%= item.id %></span>
+              </td>
+              <td>
+                <span><%= link_to item.name, admin_item_path(item.id) %></span>
+              </td>
+              <td>
+                <span><%= item.price %></span>
+              </td>
+              <td>
+                <span><%= item.genre %></span>
+              </td>
+              <td>
+                <span><%= item.is_active %></span>
+              </td>
+             </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

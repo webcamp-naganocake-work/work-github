@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+ 　<h1>商品詳細</h1>
+ 　<tr>
+  　 <%= image_tag item.get_profile_image(100,100) %>
+ 　</tr>
+   <table class = "table">
+     <tr>
+       <th>商品名</th>
+       <th><%= item.name %></th>
+     </tr>
+     <tr>
+       <th>商品説明</th>
+       <th><%= item.introduction %></th>
+     </tr>
+     <tr>
+       <th>ジャンル</th>
+       <th><%= item.genre %></th>
+     </tr>
+     <tr>
+       <th>税込価格(税抜価格)</th>
+       <th><%= item.price %></th>
+     </tr>
+     <tr>
+       <th>販売ステータス</th>
+       <th><%= item.is_active %></th>
+     </tr>
+   </table>
+  </div>
+</div>

@@ -5,17 +5,16 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
   }
 
-  devise_for :admins,skip: [:registrations, :passwords], controllers: {
+  devise_for :admin,skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
   }
 
   scope module: :public do
-    resources :homes
-    resources :items
-    resources :customers
-    resources :cart_items
-    resources :orders
-    resources :addresses
+    resources :items, only: [:index,:show]
+    resources :customers, only: [:show,:edit,:update]
+    resources :cart_items, only: [:index,:update,:create,:destroy]
+    resources :orders, only: [:new,:create,:index,:show]
+    resources :addresses, only: [:index,:edit,:create,:destroy,:update]
     root to: 'homes#top'
     get '/about' => 'homes#about'
     get '/customers/mypage' => 'customers#show'
@@ -28,12 +27,13 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    root to: 'homes#top'
     resources :homes
-    resources :items
-    resources :genres
-    resources :customers
-    resources :orders
-    resources :order_details
+    resources :items, only: [:index,:new,:create,:show,:edit,:update]
+    resources :genres, only: [:index,:create,:edit,:update]
+    resources :customers, only: [:index,:show,:edit,:update]
+    resources :orders, only: [:show,:update]
+    resources :order_details, only: [:update]
   end
 
   #test
