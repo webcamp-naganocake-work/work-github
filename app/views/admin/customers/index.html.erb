@@ -1,38 +1,34 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-1">
-      <h1>商品一覧</h1>
+      <h1>会員一覧</h1>
         <table class = "table">
           <thead>
             <tr>
-              <th>商品ID</th>
-              <th>商品名</th>
-              <th>税抜価格</th>
-              <th>ジャンル</th>
+              <th>会員ID</th>
+              <th>氏名</th>
+              <th>メールアドレス</th>
               <th>ステータス</th>
             </tr>
           </thead>
           <tbody>
-            <% @items.each do |item| %>
+            <% @customer.each do |customer| %>
              <tr>
               <td>
-                <span><%= item.id %></span>
+                <span><%= customer.id %></span>
               </td>
               <td>
-                <span><%= link_to item.name, admin_item_path(item.id) %></span>
+                <span><%= link_to customer.(last_name,first_name), admin_customer_path(customer.id) %></span>
               </td>
               <td>
-                <span><%= item.price %></span>
-              </td>
-              <td>
-                <span><%= item.genre.name %></span>
+                <span><%= customer.email %></span>
               </td>
               <td>
                 <span>
-                  <% if item.is_active %>
-                    販売中
+                  <% if customer.is_deleted %>
+                    退会
                   <% else %>
-                    販売停止中
+                    有効
                   <% end %>
                 </span>
               </td>
