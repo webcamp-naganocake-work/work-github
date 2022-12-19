@@ -1,1 +1,36 @@
-注文履歴一覧
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <h1>注文履歴一覧</h1>
+        <table class = "table">
+          <thead>
+            <tr>
+              <th>購入日時</th>
+              <th>購入者</th>
+              <th>注文個数</th>
+              <th>注文ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order_history.each do |order_history| %>
+             <tr>
+              <td>
+                <span><%= order_history.created_at %></span>
+              </td>
+              <td>
+                <span><%= order_history.customer.(last_name,first_name) %></span>
+              </td>
+              <td>
+                <span><%= order_history.order_detail.amount %></span>
+              </td>
+              <td>
+                <span><%= order_history.order_status %></span>
+              </td>
+             </tr>
+            <% end %>
+            <%= paginate @order_history %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
