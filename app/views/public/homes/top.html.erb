@@ -3,19 +3,33 @@
 <div class="container">
   <div class="row">
     <div class="border">
-    "ようこそ、ながのCAKEへ！<br>
+    ようこそ、ながのCAKEへ！<br>
     このサイトはこのサイトはケーキ販売のECサイトになります。<br>
     会員でない方も商品の閲覧はできますが、<br>
     購入には会員登録が必要になります。<br>
     </div>
   </div>
+  <h2>新着商品</h2>
   <div class="row">
-    <h2>新着商品</h2>
-    <%= @items.each do |items| %>
-      <ul><%= image_tag items.image, size:"50x50" %></ul>
-      <ul><%= items.name %></ul>
-      <ul><%= items.price %></ul>
-    <% end %>
+    <div class="table">
+      <% @items.each do |items| %>
+        <tr>
+          <td>
+            <span><%= image_tag items.image, size:"200x150" %></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <spam><%= link_to items.name, item_path(items.id) %></spam>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span><%= items.price %></span>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
   <%= link_to "全ての商品を見る>", items_path %>
 </div>

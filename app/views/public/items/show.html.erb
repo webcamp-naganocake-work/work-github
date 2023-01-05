@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <%= image_tag @item.image,size: "250x200" %>
+    </div>
+
+    <%= @item.name %>
+    <%= @item.introduction %>
+    <%= @item.price %>
+  </div>
+  <div class="row">
+    <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+      <%= f.select :amount, *[1..10] , { include_blank: '個数選択'} %>
+      <%= f.hidden_field :item_id, :value => @item.id %>
+      <%= f.submit "カートに入れる", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
+
