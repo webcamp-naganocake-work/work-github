@@ -3,19 +3,14 @@
       <h4>商品一覧</h4>
       <span>(全<%= @items.count %>件)</span>
     </div>
-    <table>
+    <div class = "row">
       <% @items.each do |item| %>
-        <tr>
-          <td><%= image_tag item.image, size: "250x200" %></td>
-        </tr>
-        <tr>
-          <td><%= link_to item.name, item_path(item.id) %></td>
-        </tr>
-        <tr>
-          <td><%= item.price %></td>
-        </tr>
-      </div>
+          <div class ="col-md-3">
+            <span><%= image_tag item.image, size: "250x200" %></span><br>
+            <span><%= link_to item.name, item_path(item.id) %></span><br>
+            <span><%= item.price %></span>
+          </div>
       <% end %>
-      <%= paginate @item %>
-    </table>
+    </div>
+    <%= paginate @item %>
 </div>

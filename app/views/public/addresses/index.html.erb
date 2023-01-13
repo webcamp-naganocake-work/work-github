@@ -16,17 +16,19 @@
         <div class="row justify-content-around">
           <div class="col">
             <label>住所</label>
-            <%= f.text_field :address, placeholder: "東京都渋谷区代々木町神園町0-0" %>
+            <%= f.text_field :address, placeholder: "東京都渋谷区代々木町神園町0-0", size: 40 %>
           </div>
         </div>
       </div>
       <div class="form-group">
-         <div class="row justify-content-around">
-          <div class="col">
+        <div class="row justify-content-around">
+          <div class="col-md-3">
             <label>宛名</label>
+          </div>
+          <div class="col-md-4">
             <%= f.text_field :name, placeholder: "令和道子" %>
           </div>
-          <div class="col">
+          <div class="col-md-2">
             <%= f.submit "新規登録" , class: "btn btn-success" %>
           </div>
         </div>
@@ -34,7 +36,7 @@
     <% end %>
   </div>
   <div class="row">
-    <table class="table">
+    <table class="table table-bordered">
       <thead>
         <tr>
            <th>郵便番号</th>
