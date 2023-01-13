@@ -18,7 +18,7 @@
                 <span><%= customer.id %></span>
               </td>
               <td>
-                <span><%= link_to customer.(last_name,first_name), admin_customer_path(customer.id) %></span>
+                <span><%= link_to customer.full_name, admin_customer_path(customer.id) %></span>
               </td>
               <td>
                 <span><%= customer.email %></span>

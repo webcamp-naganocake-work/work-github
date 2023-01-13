@@ -11,19 +11,20 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :items, only: [:index,:show]
-    resources :customers, only: [:show,:edit,:update]
+    delete '/cart_items/all_destroy' => 'cart_items#all_destroy'
     resources :cart_items, only: [:index,:update,:create,:destroy]
+    post '/orders/confirm' => 'orders#confirm'
+    get '/orders/complete' => 'orders#complete'
     resources :orders, only: [:new,:create,:index,:show]
     resources :addresses, only: [:index,:edit,:create,:destroy,:update]
     root to: 'homes#top'
     get '/about' => 'homes#about'
     get '/customers/mypage' => 'customers#show'
-    get '/customers/information/edit' => 'customers#edit'
+    get '/customers/information/edit' => 'customers#edit',as: "edit_customer"
+    patch '/customers' => 'customers#update'
     get '/customers/confirm' => 'customers#confirm'
     patch '/customers/withdrawal' => 'customers#withdrawal'
-    delete '/cart_items/all_destroy' => 'cart_items#all_destroy'
-    post '/orders/confirm' => 'orders#confirm'
-    get '/orders/complete' => 'orders#complete'
+    
   end
 
   namespace :admin do
