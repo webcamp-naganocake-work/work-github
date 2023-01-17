@@ -8,11 +8,11 @@
      </tr>
      <tr>
        <th>氏名</th>
-       <th><%= @customer.(last_name,first_name) %></th>
+       <th><%= @customer.last_name + " " + @customer.first_name %></th>
      </tr>
      <tr>
        <th>フリガナ</th>
-       <th><%= @customer.(last_name_kana,first_name_kana) %></th>
+       <th><%= @customer.last_name_kana + " " + @customer.first_name_kana %></th>
      </tr>
      <tr>
        <th>郵便番号</th>
@@ -33,7 +33,7 @@
      <tr>
        <th>会員ステータス</th>
        <th>
-         <%= if @customer.is_deleted %>
+         <% if @customer.is_deleted == true %>
            退会
          <% else %>
            有効
@@ -41,7 +41,11 @@
        </th>
      </tr>
    </table>
-   <%= link_to "編集",admin_order_path %>
-   <%= link_to "注文履歴一覧を見る",admin_homes_path %>
+   <div class = "col-4">
+     <%= link_to "編集", edit_admin_customer_path,class: "btn btn-success" %>
+   </div>
+   <div class = "col-4">
+     <%= link_to "注文履歴一覧を見る", admin_homes_path,class: "btn btn-primary" %>
+   </div>
   </div>
 </div>

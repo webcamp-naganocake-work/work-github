@@ -15,16 +15,20 @@
             <% @order_history.each do |order_history| %>
              <tr>
               <td>
-                <span><%= order_history.created_at %></span>
+                <span><%= link_to order_history.created_at.strftime("%Y-%m-%d"), admin_order_path(order_history.id) %></span>
               </td>
               <td>
-                <span><%= order_history.customer.(last_name,first_name) %></span>
+                <span><%= order_history.customer.full_name %></span>
               </td>
               <td>
-                <span><%= order_history.order_detail.amount %></span>
+                <span>
+                  <% order_history.order_details.each do |order_detail| %>
+                   <%= order_detail.amount %>
+                  <% end %>
+                </span>
               </td>
               <td>
-                <span><%= order_history.order_status %></span>
+                <span><%= order_history.order_status_i18n %></span>
               </td>
              </tr>
             <% end %>

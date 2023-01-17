@@ -1,10 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 offset-md-1">
+    <div class="col-md-5">
       <h1>商品一覧</h1>
+    </div>
+    <div class="col-md-5 offset-md-1">
       <%= link_to new_admin_item_path do %>
-        <i class="far fa-plus-square"></i>
+        <i class="far fa-plus-square fa-3x"></i>
       <% end %>
+    </div>
         <table class = "table">
           <thead>
             <tr>
@@ -41,9 +44,8 @@
               </td>
              </tr>
             <% end %>
-            <%= paginate @items %>
           </tbody>
         </table>
-    </div>
+        <%= paginate @items %>
   </div>
 </div>

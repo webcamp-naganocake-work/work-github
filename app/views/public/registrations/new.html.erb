@@ -5,6 +5,7 @@
   <div class="row">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
      <%= render "public/shared/error_messages", resource: resource %>
+     
       <div class="field">
         名前
         <%= f.label :last_name,"(性)" %>
