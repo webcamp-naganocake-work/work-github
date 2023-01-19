@@ -22,9 +22,7 @@
               </td>
               <td>
                 <span>
-                  <% order_history.order_details.each do |order_detail| %>
-                   <%= order_detail.amount %>
-                  <% end %>
+                  <%= order_history.order_details.sum(:amount) %>
                 </span>
               </td>
               <td>
