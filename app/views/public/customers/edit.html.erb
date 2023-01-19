@@ -3,77 +3,77 @@
     <div class="row">
       <%= form_with model:@customer, url: customers_update_path do |f| %>
           <div class="form-group">
-            <div class="row justify-content-around">
-              <div class="col">
+            <div class="row">
+              <div class="col-4">
                 <label>氏名</label>
               </div>
-              <div class="col">
+              <div class="col-3">
                 <%= f.text_field :last_name %>
               </div>
-              <div class="col">
+              <div class="col-3">
                 <%= f.text_field :first_name %>
               </div>
             </div>
           </div>
           <div class="form-group">
-            <div class="row justify-content-around">
-              <div class="col">
+            <div class="row">
+              <div class="col-4">
                 <label>フリガナ</label>
               </div>
-              <div class="col">
+              <div class="col-3">
                 <%= f.text_field :last_name_kana %>
               </div>
-              <div class="col">
+              <div class="col-3">
                 <%= f.text_field :first_name_kana %>
               </div>
             </div>
           </div>
           <div class="form-group">
-            <div class="row justify-content-around">
-              <div class="col">
+            <div class="row justify-content-start">
+              <div class="col-4">
                 <label>郵便番号</label>
               </div>
-              <div class="col">
+              <div class="col-8">
                 <%= f.text_field :postal_code %>
               </div>
             </div>
           </div>
           <div class="form-group">
-            <div class="row justify-content-around">
-              <div class="col">
+            <div class="row">
+              <div class="col-4">
                 <label>住所</label>
               </div>
-               <div class="col">
+               <div class="col-8">
                 <%= f.text_field :address, size: 40 %>
               </div>
             </div>
           </div>
           <div class="form-group">
-            <div class="row justify-content-around">
-              <div class="col">
+            <div class="row">
+              <div class="col-4">
                 <label>電話番号</label>
               </div>
-              <div class="col">
+              <div class="col-8">
                  <%= f.text_field :telephone_number %>
               </div>
             </div>
           </div>
           <div class="form-group">
-            <div class="row justify-content-around">
-              <div class="col">
+            <div class="row ">
+              <div class="col-4">
                 <label>メールアドレス</label>
               </div>
-              <div class="col">
+              <div class="col-8">
                 <%= f.text_field :email %>
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="row justify-content-around">
-              <div class="col">
+              <div class="col-4">
                 <%= f.submit "編集内容を保存" , class: "btn btn-success" %>
               </div>
-              <div class="col">
+              <div class="col-4">
                 <%= link_to "退会する", customers_confirm_path, class: "btn btn-danger" %>
               </div>
             </div>
