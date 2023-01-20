@@ -21,10 +21,10 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     get '/customers/mypage' => 'customers#show'
     get '/customers/information/edit' => 'customers#edit',as: "edit_customer"
-    patch '/customers' => 'customers#update'
+    patch '/customers/update' => 'customers#update'
     get '/customers/confirm' => 'customers#confirm'
     patch '/customers/withdrawal' => 'customers#withdrawal'
-    
+
   end
 
   namespace :admin do
