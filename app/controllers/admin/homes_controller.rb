@@ -1,7 +1,7 @@
 class Admin::HomesController < ApplicationController
 
   def top
-    @order_history = Order.page(params[:page])
+    @order_history = Order.page(params[:page]).per(10)
   end
 
 end

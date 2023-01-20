@@ -1,28 +1,41 @@
 <div class="container">
   <h1>商品詳細</h1>
   <div class="row">
-    <div class = "col-md-5">
-      <%= image_tag @item.image, size: "250x200" %>
+    <div class = "col-4">
+      <%= image_tag @item.image, size: "300x250" %>
     </div>
-    
-    <div class = "col-md-5">
-      <h4>商品名</h4>
-      <span><%= @item.name %></span>
-      <h4>商品説明</h4>
-      <span><%= @item.introduction %></span>
-      <h4>ジャンル</h4>
-      <%= @item.genre.name %>
-      <h4>税込価格(税抜価格)</h4>
-      <%= (@item.price*1.1).to_i %>(<%= @item.price %>)円
-      <h4>販売ステータス</h4>
-      <% if @item.is_active %>
-        販売中
-      <% else %>
-        販売停止中
-      <% end %>
+    <div class = "col-8">
+      <div class="row mb-2">
+        <div class = "col-4">商品名</div>
+        <div class="col-4"><%= @item.name %></div>
+      </div>
+      <div class="row mb-2">
+        <div class = "col-4">商品説明</div>
+        <div class="col-4"><%= @item.introduction %></div>
+      </div>
+      <div class="row mb-2">
+        <div class = "col-4">ジャンル</div>
+        <div class = "col-4"><%= @item.genre.name %></div>
+      </div>
+      <div class="row mb-2">
+        <div class = "col-4">税込価格(税抜価格)</div>
+        <div class = "col-4"><%= (@item.price*1.1).to_i %>(<%= @item.price %>)円</div>
+      </div>
+      <div class="row mb-2">
+        <div class = "col-4">販売ステータス</div>
+        <div class = "col-4">
+          <% if @item.is_active %>
+            販売中
+          <% else %>
+            販売停止中
+          <% end %>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col offset-md-3">
+          <%= link_to "編集する",edit_admin_item_path, class: "btn btn-success" %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row justify-content-center">
-    <%= link_to "編集する",edit_admin_item_path, class: "btn btn-success" %>
   </div>
 </div>

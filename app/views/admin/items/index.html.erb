@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-5">
+  <div class="row justyfy-content-between">
+    <div class="col-md-6">
       <h1>商品一覧</h1>
     </div>
-    <div class="col-md-5 offset-md-1">
+    <div class="col-md-6 mx-auto text-right">
       <%= link_to new_admin_item_path do %>
         <i class="far fa-plus-square fa-3x"></i>
       <% end %>
@@ -46,6 +46,8 @@
             <% end %>
           </tbody>
         </table>
-        <%= paginate @items %>
+        <div class="row justify-content-center">
+            <%= paginate @items %>
+        </div>
   </div>
 </div>
