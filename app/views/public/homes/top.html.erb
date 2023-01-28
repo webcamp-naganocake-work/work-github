@@ -14,7 +14,9 @@
 
       <% @items.each do |items| %>
         <div class ="col-md-3">
-          <span><%= image_tag items.image, size:"200x150" %></span><br>
+          <%= link_to item_path(items.id) do %>
+            <span><%= image_tag items.image, size:"200x150" %></span><br>
+          <% end %>
           <spam><%= link_to items.name, item_path(items.id) %></spam><br>
           <span>¥<%= items.price %></span>
         </div>
